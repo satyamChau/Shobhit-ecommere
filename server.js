@@ -2,16 +2,22 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan  from "morgan";
 import connectDB from "./config/db.js";
-import authRoutes from './routes/authRoute.js'
-import categoryRoutes from './routes/categoryRoutes.js'
-import productRoutes from './routes/productRoutes.js'
-import path from 'path'
-import cors from 'cors'
+import authRoutes from './routes/authRoute.js';
+import categoryRoutes from './routes/categoryRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import path from 'path';
+import {fileURLToPath} from 'url';
+import cors from 'cors';
 
 
 dotenv.config();
 
+
+
 connectDB();
+
+const__filename = fileURLToPath(import.meta.url);
+const__dirname = path.dirname(__filename);
 const app = express();
 
 app.use(cors());
